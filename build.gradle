@@ -12,8 +12,8 @@ subprojects {
     version = '1.0.0'
 
     apply plugin: 'java'
-
     apply plugin: 'application'
+    apply plugin: 'idea'
 
     repositories {
         mavenCentral()
