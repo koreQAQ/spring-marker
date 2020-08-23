@@ -42,14 +42,14 @@ public class GreetingControllerTest  extends AbstractWebUnitTest {
     }
 
     @Test
-    void welcome() throws Exception {
+    void greeting() throws Exception {
 
         //因为请求路径与视图名称一样，必须设置对应的转发前缀、后缀，这一点在视图解析器中设置
         // 而没有使用Spring上下文，导致没有启用freeMarker的配置类，会
         mockMvc.perform(
-                    MockMvcRequestBuilders.get("/greeting")
-                            .param("message",helloMessage)
-                )
+                MockMvcRequestBuilders.get("/greeting")
+                        .param("message", helloMessage)
+        )
                 .andDo(MockMvcResultHandlers.log())
                 // 跳转视图名称
                 .andExpect(MockMvcResultMatchers.view().name("greeting"));
