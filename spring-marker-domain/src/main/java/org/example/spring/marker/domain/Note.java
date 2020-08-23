@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.NonNull;
 import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
@@ -14,10 +15,11 @@ import java.time.LocalDateTime;
 @ToString
 public class Note {
 
-    @NonNull
+    @NotBlank
     private String id;
+    @NotBlank
     private String content;
-    @NonNull
+    @NotBlank
     private String seqNo;
     @NonNull
     private String who;

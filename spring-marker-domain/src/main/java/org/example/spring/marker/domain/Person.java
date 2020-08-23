@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
-public class Noter {
+public class Person {
 
     @NotBlank
     private String id;
