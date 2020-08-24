@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * Created by lishubin on 2020/8/22 9:55 下午
  * @author lishubin
  */
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
 public @interface LogTrace {
 }

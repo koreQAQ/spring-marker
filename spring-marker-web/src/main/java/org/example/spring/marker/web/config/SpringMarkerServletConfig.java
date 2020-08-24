@@ -3,6 +3,7 @@ package org.example.spring.marker.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 @Configuration
 @ComponentScan(basePackages =  {"org.example.spring.marker.web"})
 @EnableWebMvc
+@EnableAspectJAutoProxy
 public class SpringMarkerServletConfig implements WebMvcConfigurer {
 
 
@@ -23,10 +25,6 @@ public class SpringMarkerServletConfig implements WebMvcConfigurer {
         registry.freeMarker();
     }
 
-    /**
-     *
-     * @param configurer
-     */
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
@@ -35,7 +33,8 @@ public class SpringMarkerServletConfig implements WebMvcConfigurer {
     /**
      * {@link  org.springframework.web.servlet.config.annotation.ViewResolverRegistry.FreeMarkerRegistration}
      * 这个需要在配置一个新的ViewResolver，在上述类中已经新建了一个ViewResolver
-     * @return
+     *
+     * @return FreeMarker的配置
      */
     @Bean
     public FreeMarkerConfigurer freeMarkerConfigurer() {
@@ -44,11 +43,9 @@ public class SpringMarkerServletConfig implements WebMvcConfigurer {
         return freeMarkerConfigurer;
     }
 
-
-
-    // 配置静态资源解析
-
-
+    /**
+     * 配置静态资源解析
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
