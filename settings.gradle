@@ -9,3 +9,6 @@
 
 rootProject.name = 'spring-marker'
 include 'spring-marker-web','spring-marker-domain'
+include 'spring-marker-data'
+include 'spring-marker-integration'
+
